@@ -1,0 +1,277 @@
+
+/* fonts styles used during the exercise
+
+font-family: 'Mulish', sans-serif;
+font-family: 'Philosopher', sans-serif; */
+
+/* Colors palette choices used 
+orange for the accent
+black for the text
+orange for the headers except the h1
+grey and white composition for the background
+white on orange for buttons
+*/
+
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Remove default margin */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role='list'],
+ol[role='list'] {
+  list-style: none;
+}
+
+/* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+    html:focus-within {
+     scroll-behavior: auto;
+    }
+    
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+/* Set core root defaults */
+html:focus-within {
+  scroll-behavior: smooth;
+}
+/* General font styling for the document. Can be transformed in variables for more flexibility later */
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+
+h1, h2, nav a {
+    font-family: 'Philosopher', sans-serif;
+    font-weight: bolder;
+    text-align: center;
+}
+
+.prime p {
+    margin-top: 1rem;
+}
+.prime p::first-letter{
+    font-weight: bolder;
+    font-size: xx-large;
+}
+:not(h1, h2, nav a ){
+    font-family: 'Mulish', sans-serif;
+}
+
+
+/* Set core body defaults */
+body {
+  min-height: 100vh;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+  /* display: flex;
+  flex-direction: column; */
+  align-items: stretch;
+  background: rgb(255,255,255);
+background: linear-gradient(45deg, rgba(218,217,217,1) 0%, rgba(255,255,255,1) 45%, rgba(218,217,217,1) 100%);
+}
+/*All links styling*/
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+nav ul li > a {
+    text-decoration: none;
+}
+a:link, a:visited {
+    /* color: initial; */
+    cursor: pointer;
+    
+}
+
+a:hover{
+    border-bottom: 5px solid gold;
+    transition: all 0.2s;
+    color: initial;
+}
+
+article p > a {
+    background-color: #ed9230d5;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 8%;
+}
+/* Make images easier to work with - All images config will be here. It will then be easy to adjust if need be*/
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+#header-logo > a > img {
+    width:max(15%, 200px);
+    margin-top: 5%;
+}
+article > img {
+    width: 50%;
+    max-width: 100%;
+}
+
+#banner-image {
+    max-height: 50vh;
+    object-fit:cover;
+}
+
+/* Navigation elements section */
+
+nav {
+    width: 80%;
+    max-width: 95%;
+    /* border: 1px solid blue; */
+    align-items: center;
+    padding: min(1rem, 5%);
+    margin-top: 1rem;
+}
+nav ul {
+    list-style: none;
+    font-size: max(1.5rem,1rem) ;
+    text-transform: uppercase;
+    display: flex;
+    width: 80%;
+    /* justify-content: space-around; */
+    max-width: min(85vw,900px);
+    /* margin-left: auto;
+    margin-right: auto; */
+    /* margin-top: 5rem; */
+    /* border: 1px solid red; */
+    flex: 1;
+}
+
+h2, nav ul li > a {
+    color: orange;
+}
+/* Utility classes used for layout. It is easier to code with utility classes based on the design choice */
+.flex {
+    display: flex;
+}
+.cards {
+    max-width: 900px;
+    text-align: center;
+}
+.col {
+    flex-direction: column;
+}
+
+.gap {
+    gap: 5%;
+}
+.centered {
+    margin-left: auto;
+    margin-right: auto;
+}
+.around {
+    justify-content: space-around;
+    
+}
+.between {
+    justify-content: space-between;
+}
+
+/*Generic sections or parts*/
+
+main {
+    max-width: min(95%,90vw);
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+section {
+    max-width: 90vw;
+    margin: 2rem auto;
+}
+
+article, article  * {
+    
+    margin-top: 1rem;
+    padding: 1rem;
+}
+
+
+article {
+    border-radius: 5%;
+    padding: 1rem;
+    box-shadow: 0 0 15px 10px lightgrey;
+    width: 25%;
+    max-width: 90%;
+    transition: transform 1.3s;
+}
+/*Finally a little animation to have some fun */
+article:hover{
+    transform: rotateY(360deg);
+}
+
+
+footer {
+    max-width: 600px;
+    /* border: 1px solid red; */
+    align-self: flex-end;
+    margin: 1.5rem auto;
+}
+footer > div {
+    max-width: 40%;
+}
+
+/*Media query for different screen sizes*/
+@media screen and (max-width: 500px) {
+    section.cards {
+        flex-direction: column;
+        align-items: center;
+    }
+    .cards article {
+        width: 120%;
+        
+    }
+    footer {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 1.5rem;
+    }
+}
+
+@media screen and (min-width: 500px) and (max-width: 1000px) {
+    section.cards {
+        flex-direction: column;
+        align-items: center;
+    }
+    .cards article {
+        width: 300px;
+        margin-bottom: 4rem;
+    }
+    footer {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 1.5rem;
+    }
+}
